@@ -1,0 +1,10 @@
+.game-board {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#exampleA {
+	position:fixed;
+	cursor:none;
+	background-color:Red;
+}
