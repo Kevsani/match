@@ -4,4 +4,6 @@
 	<author href="http://audioplexity.com" email="support@audioplexity.com">Kevin Sanchez</author>
 	<content src="index.html"/>
 	<access origin="*" />
+	<preference name="UIWebViewBounce" value="false" />
+	<preference name="DisallowOverscroll" value="true" />
 </widget>

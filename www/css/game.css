@@ -1,10 +1,23 @@
-.game-board {
-	position: absolute;
-	top: 0px;
-	left: 0px;
+body {
+    margin: 0px;
 }
-#exampleA {
-	position:fixed;
+
+.drag {
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+#draggable, #draggable2 {
+    float: left;
+    border: 0px;
+    position: fixed;
 	cursor:none;
 	background-color:Red;
+    z-index: 3; 
+}
+
+#droppable {
+    position: fixed;
+    border: 5px dashed;
+    float: left;
 }

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html style="height:100%">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/game.css" />
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <title>Match</title>
+</head>
+<body style="min-height:100%">
+    <input onclick="buttonClicked()" type="button" value="Stop Listening" id="dragButton" style="width:150px;" />
+    <br />
+    <div class="game-board">
+        <div id="exampleA"></div>
+        <!--
+        <div id="exampleB" style="position:absolute;top:10px;left:70px;width:50px;height:50px;background-color:Blue;">
+            <div id="exampleBHandle" style="position:absolute;height:20px;left:0px;top:0px;cursor:move;width:50px;background-color:Red;">&nbsp;Handle</div>
+        </div>
+        -->
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/drag.js"></script>
+    <script type="text/javascript">
+		var w = window,
+			d = document,
+			e = d.documentElement,
+			g = d.getElementsByTagName('body')[0],
+			x = w.innerWidth || e.clientWidth || g.clientWidth,
+			y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+		var exampA = null;
+		var exampB = null;
+		d.getElementById('exampleA').style.width = x*.2 + "px";
+		d.getElementById('exampleA').style.height = x*.2 + "px";
+		var eAw = d.getElementById('exampleA').clientWidth;
+		var eAh = d.getElementById('exampleA').clientHeight;
+		function initialize()
+		{
+		  exampA = new dragObject("exampleA", null, new Position(0,0), new Position(x-eAw,y-eAw), null, null, exampleAEnd, false, x*.1, y*.1);
+		  exampB = new dragObject("exampleB", "exampleBHandle");
+		}
+		function buttonClicked()
+		{
+		  var button = document.getElementById('dragButton');
+		  if(exampA.IsListening())
+		  {
+			exampA.StopListening(true);
+			button.value = "Resume Listening";
+		  }
+		  else
+		  {
+			exampA.StartListening();
+			button.value = "Stop Listening";
+		  }
+		}
+		function exampleAEnd()
+		{
+		}
+		initialize();
+    </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+            app.initialize();
+    </script>
+</body>
+</html>
