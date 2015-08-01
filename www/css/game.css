@@ -5,9 +5,6 @@ body {
 .drag {
     -ms-touch-action: none;
     touch-action: none;
-}
-
-#draggable, #draggable2 {
     float: left;
     border: 0px;
     position: fixed;
@@ -16,7 +13,7 @@ body {
     z-index: 3; 
 }
 
-#droppable {
+.drop {
     position: fixed;
     border: 5px dashed;
     float: left;

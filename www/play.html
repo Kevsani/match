@@ -11,19 +11,33 @@
     <div id="draggable" class="drag">
         <p></p>
     </div>
-    <div id="droppable" class="ui-widget-header">
-        <p>Drop me here</p>
+    <div id="droppable" class="drop ui-widget-header">
+        <p></p>
+    </div>
+    <div id="draggable2" class="drag">
+        <p></p>
+    </div>
+    <div id="droppable2" class="drop ui-widget-header">
+        <p></p>
+    </div>
+    <div id="draggable3" class="drag">
+        <p></p>
+    </div>
+    <div id="droppable3" class="drop ui-widget-header">
+        <p></p>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/drag.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script>
-        var square = null;
-        var squaredrop = null;
         function initialize() {
-            square = new dragElement("draggable", new Position(25, 50), new Size(10));
-            squaredrop = new dropElement("droppable", square, new Position(75, 50));
+            var square = new dragElement("draggable", new Position(10, 70), new Size(10));
+            var square2 = new dragElement("draggable2", new Position(10, 40), new Size(5));
+            var square3 = new dragElement("draggable3", new Position(10, 10), new Size(20, 5));
+            var squaredrop = new dropElement("droppable", square, new Position(70, 30));            
+            var squaredrop2 = new dropElement("droppable2", square2, new Position(50, 30));         
+            var squaredrop3 = new dropElement("droppable3", square3, new Position(60, 60));
         }
         initialize();
     </script>

@@ -263,8 +263,8 @@ function dropElement(element, dragObj, position) {
                 $(this)
                 $(dragObj.class).draggable("option", "revert", false); //make dragObj stay in its new spot
                 $(dragObj.class).animate({
-                    left: parseFloat(d.getElementById('droppable').style.left) + border,
-                    top: parseFloat(d.getElementById('droppable').style.top) + border
+                    left: parseFloat(element.style.left) + border,
+                    top: parseFloat(element.style.top) + border
                 }, {
                     duration: 600,
                     step: function (now, fx) {
