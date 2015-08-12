@@ -29,20 +29,36 @@
         <p></p>
     </div>
     <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
+
     <script type="text/javascript" src="js/drag.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script>
+        var deviceReadyDeferred = $.Deferred();
+        var jqmReadyDeferred = $.Deferred();
+        $.when(deviceReadyDeferred, jqmReadyDeferred).done(deviceReady);
+        $(document).bind("mobileinit", function () {
+            jqmReadyDeferred.resolve();
+        });
+        
+
+    </script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>    
+    <script>
+        document.addEventListener("deviceReady", deviceReady, false);
+        function deviceReady() {
+            deviceReadyDeferred.resolve();
+            initialize();
+        }
         function initialize() {
             var square = new dragElement("draggable", new Position(10, 70), new Size(10));
             var square2 = new dragElement("draggable2", new Position(10, 40), new Size(5));
-            var square3 = new dragElement("draggable3", new Position(10, 10), new Size(20, 5));
+            var square3 = new dragElement("draggable3", new Position(10, 10), new Size(30, 5));
             var squaredrop = new dropElement("droppable", square, new Position(70, 30));            
             var squaredrop2 = new dropElement("droppable2", square2, new Position(50, 30));         
             var squaredrop3 = new dropElement("droppable3", square3, new Position(60, 60));
         }
-        initialize();
+        
     </script>
     <script type="text/javascript">
         app.initialize();
